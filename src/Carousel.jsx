@@ -1,18 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
-
-const images = [
-  "https://picsum.photos/id/1011/800/300",
-  "https://picsum.photos/id/1015/800/300",
-  "https://picsum.photos/id/1021/800/300",
-  "https://picsum.photos/id/1035/800/300",
-  "https://picsum.photos/id/1043/800/300",
-];
+import { images, uploadedImages } from "./images";
 
 const Carousel = () => {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const imageCount = images.length;
+  const imageCount = uploadedImages.length;
   const intervalRef = useRef(null);
 
   useEffect(() => {
@@ -45,9 +38,9 @@ const Carousel = () => {
           transform: `translateX(-${index * 100}%)`,
         }}
       >
-        {images.map((img, i) => (
+        {uploadedImages.map((img, i) => (
           <div className="carousel-slide" key={i}>
-            <img src={img} alt={`Slide ${i}`} />
+            <img src={`/Images/${img}`} alt={`Slide ${i}`} />
           </div>
         ))}
       </div>
