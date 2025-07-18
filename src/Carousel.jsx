@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
-import { images, uploadedImages } from "./images";
+import { images } from "./images";
 
 const Carousel = () => {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const imageCount = uploadedImages.length;
+  const imageCount = images.length;
   const intervalRef = useRef(null);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Carousel = () => {
           transform: `translateX(-${index * 100}%)`,
         }}
       >
-        {uploadedImages.map((img, i) => (
+        {images.map((img, i) => (
           <div className="carousel-slide" key={i}>
             {/* <img src={img} alt={`Slide ${i}`} /> */}
             <img src={`/Images/${img}`} alt={`Slide ${i}`} />
