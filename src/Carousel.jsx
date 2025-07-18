@@ -40,6 +40,7 @@ const Carousel = () => {
       >
         {uploadedImages.map((img, i) => (
           <div className="carousel-slide" key={i}>
+            {/* <img src={img} alt={`Slide ${i}`} /> */}
             <img src={`/Images/${img}`} alt={`Slide ${i}`} />
           </div>
         ))}
